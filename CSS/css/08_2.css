@@ -1,0 +1,38 @@
+.div1 {
+    /* 테두리 속성 */
+    border-style: solid;
+    
+    /* 테두리 색상 */
+    border-color: #ff0000;
+
+    /* 테두리 굵기 
+        > 1개 지정 : 4방향 테두리
+        > 2개 지정 : 첫번째값 - 상하 , 두번째값 - 좌우
+        > 3개 지정 ; 위 > 좌우 > 상하 
+        > 4개 지정 : 상> 우> 하> 좌
+    border-width :5px
+    */
+
+    /* 테두리 모서리 둥글게 
+        > 각 꼭지점을 다르게 지정할시 속성명이 바뀜
+        -border-top-right-radius
+        -border-top-left-radius
+        -border-bottom-right-radius
+        -border-bottom-left-radius
+    */ 
+    border-top-right-radius: 5px;
+    /* border-radius: 5px; */
+
+
+}
+
+.div2 {
+    /* 테두리의 속성, 두께, 색상을 지정
+        > 각 면을 지정할때는 아래 속성명사용
+            -border-top
+            -border-bottom
+            -border-left
+            -border-right
+    */
+    border-top: 3px solid #ff322f;
+}

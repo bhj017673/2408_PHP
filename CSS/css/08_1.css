@@ -1,0 +1,22 @@
+/* div /span 차이
+    div - 본인이 가질수있는 최대의 영역을 가짐 (블록레벨)
+    span - 자기가 가질수 있는 콘텐츠 만큼의 영역 (인라인 레벨)
+*/
+
+div, span {
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid #000;
+    width: 200px;
+    height: 150px;
+
+}
+
+.div1 {
+    /* 테두리+패딩+콘텐츠 영역으로 요소의 크기를 결정 */
+    box-sizing: border-box;
+}
+/* 콘테츠 영역만으로 요소의 크기를 결정 */
+.div2 {
+    box-sizing: content-box;
+}

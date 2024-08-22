@@ -1,0 +1,53 @@
+.apple{
+    background-color: black;
+}
+.apple1 {
+    color :#fff ;
+    padding: 20px;
+
+}
+
+.apple2 {
+    color: #ff9165;
+    padding: 20px;
+}
+
+.confirm {
+    background-color: rgb(0, 0, 0);
+    color: #fff;
+    padding: 10px;
+}
+
+.del {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    line-height: 40px;
+    padding: 10px;
+    border: 1px solid #a3a3a3;
+    text-align: center;
+}
+
+.red{
+    color: red;
+    margin: 15px;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.blue {
+    color: blue;
+}
+
+.time {
+    font-size: 10px;
+    font-weight: 600;
+    margin: 20px;
+}
+
+.content{
+    font-size: 20px;
+    font-weight: 700;
+    padding: 25px;
+   
+}

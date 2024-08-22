@@ -1,0 +1,37 @@
+.div-img {
+    width: 200px;
+    height: 200px;
+
+    background-image: url(../IMG/jjondeok.jfif), url(../IMG/icon.png);
+    /* content 가 넘칠때 스크롤 생성 */
+    /* overflow: scroll ; */
+
+    /* 배경이미지 크기 설정 
+        -auto :기본값 원본크기를 유지
+        -contain : 요소안에 배경이미지가 다들어오도록 채우기
+        -cover : 요소를 모두 덮도록 (채움)
+        - px, em, rem - 하나의 값을 주어 너비지정하여 너비에 맞는 높이로 설정
+        - % : 이미지의 비율에 맞도록 조절
+        */
+
+    background-size: cover;
+
+/* 
+    background-position : 배경 이미지의 초기 위치
+        ** 속성값**
+        - 키워드 :top, left, right, bottom, center
+        - 퍼센티지 : 25% 75%
+        - edge offsets : bottom 30px right 50px 
+*/
+
+background-position: center;
+
+}
+
+.div-repeat {
+    width: 200px;
+    height: 200px;
+    background-image: url(../IMG/icon.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+}

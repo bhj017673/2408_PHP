@@ -1,0 +1,52 @@
+main, div {
+    padding: 20px;
+}
+
+main {
+    background-color: #a9a9a9;
+    width: 250px;
+    height: 800px;
+}
+
+/* position : HTML요소 배치방법
+** 속성값 **
+    -static : 기본값으로 문서의 흐름에 맞춰 배치
+    -relative : 상하좌우로 값을 정해 배치
+    -absolute : 일반적인 흐름을 따르지 않게함
+                relative 값을 사용한 요소를 기준으로 위치값지정
+    -fixed : 뷰 포트 기준으로 위치값을 지정
+    -sticky : static처럼 일반적인 흐름에 따라가다 스크롤위치가 임계점에
+                이르면 화면에 고정할수 있는 속성 top속성만 적용
+                자신 바로위의 부모요소 안에서만 적용
+     */
+.div-static {
+    background-color: #ca8cf7;
+    position: static;
+}
+
+.div-relative {
+    background-color: #c4124c;
+    position: relative ;
+    /* top: 20px; */
+    /* left: 30px; */
+}
+.div-relative-absolute {
+    background-color: bisque;
+    position: relative;
+}
+.div-absolute {
+    background-color: aquamarine;
+    position: absolute;
+    left: 50px;
+}
+.div-fixed {
+    background-color: rgb(0, 174, 255);
+    position: fixed;
+    bottom: 5vw;
+    right: 5vh;
+}
+.div-sticky {
+    background-color: rgba(255, 58, 206, 0.212);
+    position: sticky;
+    top: 0;
+}

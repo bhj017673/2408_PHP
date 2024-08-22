@@ -1,0 +1,28 @@
+/* display 속성 : html 요소 표시방법 지정 */
+
+/*  -none :
+        요소를 보이지않게 설정, 영역차지X */
+.none {
+    display: none;
+}
+
+/*  -block : 기본적으로 가로영역을 모두채움, 이후 나타나는 태그는 줄바꿈처럼 보임
+            width, height 속성 지정 가능 */
+.block {
+    display: block;
+}
+
+/*  -inline : 컨텐츠만큼 영역을 차지, block과 다르게 줄바꿈X
+             width, height 지정불가 */
+.inline {
+    display: inline;
+}
+
+/* inline-block : 요소는 inline, 내부는 block처럼 표시
+                  inline처럼 컨텐츠만큼 영역을 차지하여 가로배치
+                  block처럼 내부속성인 width, height과같은값을 변경가능 */
+
+.inline-block{
+    display: inline-block;
+    width: 100px;
+}
