@@ -1,0 +1,36 @@
+body {
+background-color: black;
+}
+
+.container {
+    width: 500px;
+    height: 700px;
+    background-color: #fff;
+    padding: 30px 15px;
+    margin: auto;
+    background-image: url(../IMG/jjondeok.jfif);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    border : 1px dotted black
+}
+
+h1 {
+    background-color: darkslategray;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h3 {
+    color: red;
+}
+
+ul {
+    list-style-type: none;
+    line-height : 2rem;
+}

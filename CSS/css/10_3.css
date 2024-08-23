@@ -1,0 +1,85 @@
+/* 가상선택자 (Peseudo selector
+    - HTML요소의 상태에 따라 선택해서 스타일을 지정하는 선택자
+    기본형태) 선택자:가상클래스명  
+    */
+a:link {
+    /* 한번도 방문한적이 없는 링크요소를 선택 */
+    color: rgb(157, 255, 0);
+}
+
+/* 한번이라도 방문했던 링크 요소를 선택 */
+a:visited {
+    color: darkkhaki;
+}
+
+/* 마우스 커서가 올라가 있는 요소를 선택 */
+a:hover , h1:hover {
+    color: indianred;
+}
+
+/*  링크를 클릭하고 있는 요소를 선택 */
+a:active {
+    font-size: 5rem;
+}
+
+p {
+    /* display: none; */
+}
+
+h1:hover +p {
+    display: block;
+}
+
+/* 포커스가 적용되어 있는 요소를 선택 */
+input:focus {
+    border: 5px solid salmon;
+    outline: none; /* input태그의 기본 외곽선 제거 */
+}
+
+/* 체크된 상태의 input 요소를 선택하는 가상클래스 */
+input:checked +label {
+    background-color: mediumaquamarine;
+}
+
+/* 문서 내부링크의 현재 활성화 된 요소를 선택 */
+#p1:target {
+    background-color: antiquewhite;
+}
+#p2:target {
+    background-color: rgb(51, 51, 51);
+}
+
+/* 해당선택자의 요소를 제외한 나머지 요소에 스타일 적용 */
+.container :not(p) {
+    /* color: red; */
+}
+
+/* n번째 자식 요소에 스타일 적용 */
+.container :nth-child(3) {
+    color: gold;
+}
+
+/* n번째 자식 요소부터 스타일 적용 
+    - n일경우 : 해당 자식요소부터 스타일적용
+    - -n일경우 : 해당 자식까지 스타일적용
+*/
+.container :nth-child(-n+4) {
+    color: limegreen;
+}
+
+.container :nth-child(n+2):nth-child(-n+4) {
+    color :sienna
+}
+
+/* 짝수 또는 홀수 번째 자식 요소에 스타일 적용 */
+.container :nth-child(odd) {
+    background-color: lavender;
+}
+.container :nth-child(even) {
+    background-color: rgb(164, 255, 199);
+}
+
+/* 부모요소내에서 특정유형의 n번째 자식을 선택 */
+.container p:nth-of-type(1) {
+    color: red;
+}
