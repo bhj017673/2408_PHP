@@ -1,0 +1,48 @@
+
+fieldset {
+    background-image: url(../../HTML/img/다운로드\ \(1\).jfif);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 400px;
+    width: 550px;
+}
+
+legend {
+    color: magenta;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.label-required::before {
+    content: '*';
+    color: red;
+}
+
+input, textarea {
+    background-color: transparent;
+}
+
+input:focus, textarea:focus {
+    border: 3px solid red;
+    outline: none;
+}
+
+#memo {
+    vertical-align: top;
+}
+
+.radio-gender:checked + label {
+    color: red;
+}
+
+.hide {
+    display: none;
+    margin: 0;
+    background-color: black;
+    color: white;
+}
+
+.btn-send:hover + .hide {
+    display: inline-block;
+}

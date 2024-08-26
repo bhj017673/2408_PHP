@@ -1,0 +1,28 @@
+/* 
+가상요소 
+    선택자에 추가하는 키워드로
+    선택하는 요소의 지정된 부분에 스타일을 적용
+*/
+
+
+/* 특정요소의 컨텐츠 앞에 스타일 적용 */
+.required::before {
+    content: '* ';
+    color: #f00;
+}
+
+/* 특정요소의 컨텐츠 뒤에 스타일 적용 */
+.required::after {
+    content: '☆ ';
+    color: #f00;
+}
+
+/* 특정요소의 첫 글자를 선택*/
+p::first-letter {
+    color: blue;
+}
+
+/* 특정요소의 첫 라인을 선택 */
+p::first-line {
+    color: palevioletred;
+}

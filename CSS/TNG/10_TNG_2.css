@@ -1,0 +1,63 @@
+.want {
+    color: magenta;
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0px;
+}
+
+.main {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+fieldset {
+    /* box-sizing: content-box; */
+    width: 500px;
+    height: 350px;
+    background-image: url(../../HTML/img/다운로드\ \(1\).jfif);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.required::before {
+    content: '* ';
+    color: #f00;
+}
+input:focus {
+    border: 3px solid rgb(255, 25, 0);
+    outline: none;
+}
+
+input:checked + label {
+    color: red;
+}
+
+textarea {
+    background: none;
+    vertical-align: top;
+}
+
+textarea:focus {
+    border: 3px solid rgb(255, 25, 0);
+    outline: none;
+
+}
+
+input {
+    background: none
+}
+
+.re {
+    display :none;
+    background-color: black;
+    color: white;
+}
+
+button {
+    position: relative;
+}
+
+button:hover + .re {
+    display: inline;
+
+}
