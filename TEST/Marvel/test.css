@@ -85,6 +85,7 @@ h2 {
 .card {
     background-color: #FFFFFF;
     padding: 1rem;
+    border: 1px solid lightgray;
 }
 
 .card-img {
@@ -94,7 +95,7 @@ h2 {
 
 }
 
-.main-content {
+.main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
     gap: 1rem;
