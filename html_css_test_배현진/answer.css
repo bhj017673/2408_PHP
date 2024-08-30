@@ -1,0 +1,111 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+/* flex 방법 */
+/* header {
+    background-image: url('./img/img_1.jpg');
+    display: flex;
+    color: white;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+header > h1 {
+    font-size: 4rem;
+    min-width: 400px;
+}
+
+.header-info {
+    max-width: 50%;
+} */
+
+button {
+    background-color: goldenrod;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    border: none;
+}
+
+header {
+    background-image: url('./img/img_1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: grid;
+    padding: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(380px,1fr));
+}
+
+header > h1 {
+    margin: 5rem 0;
+    font-size: 4rem;
+}
+
+.header-info > p {
+    font-size: 1.5rem;
+    margin: 30px 0;
+}
+
+main {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 15px;
+    margin-bottom: 60px;
+}
+.card {
+    border: 1px solid#c9c9c9;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.main-img {
+    padding-top: 70%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img-title {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.712);
+    color: white;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 15px;
+    width: 100%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(37, 37, 37);
+    color: white;
+    width: 100vw;
+    padding: 20px;
+}
+
+footer > p {
+    text-align: center;
+}
+
+.card > a >button {
+    width: 100%;
+    font-size: 1rem;
+}
+
+button:hover {
+    opacity: 0.5;
+    transition: all 1.5s;
+}

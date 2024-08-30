@@ -14,10 +14,9 @@
     background-image: url(./img/img_1.jpg);
     display: grid;
     background-repeat: no-repeat;
-    grid-template-columns: repeat(auto-fit, minmax(500px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
     background-size: cover;
     gap: 1rem;
-    width: 100vw;
     padding: 2rem;
 }
 
