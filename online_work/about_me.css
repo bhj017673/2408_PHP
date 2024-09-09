@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tahoma', sans-serif;
+    text-decoration: none;
+}
+
+.container .navbar{
+    background-color: rgb(55, 87, 118);
+    padding: 0px 80px;
+    width: 100%;
+    height: 7rem;
+    font-family: 'Tahoma', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar .logo a{
+    color: #ffffff;
+    font-size: 70px;
+    font-weight: 800;
+}
+.navbar .menu li{
+    list-style: none;
+    display: inline-block;
+}
+.navbar .menu li a{
+    display: block;
+    color: #d6b4e7;
+    font-size: 35px;
+    font-weight: 800;
+    margin-left: 25px;
+    transition: color 0.5s ease;
+}
+.navbar .menu li a:hover{
+    color: #fff;
+}
+
+main {
+    padding: 1rem;
+    height: 100%;  
+}
+
+.record {
+    display: inline-block;
+    list-style: none;
+}
+
+.personal-data {
+    display: inline-block;
+    list-style: none;
+}
+
+.personality {
+    display: inline-block;
+    list-style: none;
+}
