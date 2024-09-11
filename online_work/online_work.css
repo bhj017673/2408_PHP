@@ -2,10 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Tahoma', sans-serif;
+    font-family: 'cafe24';
     text-decoration: none;
 }
-
+@font-face {
+    font-family: 'cafe24';
+    src: url(./Cafe24Ssurround-v2.0.ttf);
+}
 .container{
     width: 100vw;
     height: 100vh;
@@ -21,7 +24,9 @@
 .container .navbar{
     width: 100%;
     padding: 25px 0;
-    font-family: 'Tahoma', sans-serif;
+    font-family: 'cafe24';
+    font-size: 100px;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -72,7 +77,7 @@
     background: #5f1782;
     color: #fff;
     font-size: 25px;
-    padding: 5px 40px;
+    padding: 10px 40px;
     margin-top: 15px;
     border: 3px solid #5f1782;
     border-radius: 5px;
@@ -80,11 +85,20 @@
 
 .showcase-content a:hover{
     color: #fff;
-    font-weight: bold;
-    border: 0;
+    border-color: transparent;
     background: #5e17829d;
 }
 
 .main-info {
     display: inline-block;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    width: 100vw;
+    padding: 10px;
+    font-weight: 100;
+    text-align: center;
 }
