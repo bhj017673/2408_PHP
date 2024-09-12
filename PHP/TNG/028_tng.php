@@ -18,6 +18,21 @@ echo "\n";
 echo "\n";
 
 $num=1;
+
+for ( $num =1 ; $num <101 ; $num++) {
+    if(($num%3) === 0){
+        echo "짝, \n";
+        continue ;
+    } 
+    echo $sum.", ";
+}
+
+echo "\n";
+echo "\n";
+echo "\n";
+
+$num=1;
+
 for ( $num =1 ; $num <101 ; $num++) {
     if(($num%3) === 0){
         echo "짝, ";
