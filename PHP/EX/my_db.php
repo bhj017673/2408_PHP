@@ -6,11 +6,12 @@ function my_db_conn() {
 //  DB접속정보
 $my_host ="localhost"; //DB host  IP번호
 $my_user ="root"; //DB 계정명
+$my_port = "3306"; //port
 $my_password = "php504"; //DB 계정 비밀번호
 $my_db_name ="dbsample"; //접속할 DB명
 $my_charset = "utf8mb4"; //DB charset
 
-$my_dsn ="mysql:host=".$my_host.";dbname=".$my_db_name.";charset=".$my_charset; //DSN DB에 접속하기위한 문자열
+$my_dsn ="mysql:host=".$my_host.";port=".$my_port.";dbname=".$my_db_name.";charset=".$my_charset; //DSN DB에 접속하기위한 문자열
 
 // PDD 옵션 설정
 $my_opt = [

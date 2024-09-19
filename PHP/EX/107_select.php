@@ -10,7 +10,7 @@ try {
             ."From employees"
             ."WHERE"
             ."      emp_id = :emp_id"
-            ." ANd name = :name"
+            ." ANd name = :name";
 
 $arr_prepare = [
     "emp_id" => $id

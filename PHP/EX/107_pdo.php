@@ -6,11 +6,12 @@
 //  DB접속정보
 $my_host ="localhost"; //DB host  IP번호
 $my_user ="root"; //DB 계정명
+$my_port = "3306"; //port
 $my_password = "php504"; //DB 계정 비밀번호
 $my_db_name ="dbsample"; //접속할 DB명
 $my_charset = "utf8mb4"; //DB charset
 
-$my_dsn ="mysql:host=".$my_host.";dbname=".$my_db_name.";charset=".$my_charset; //DSN DB에 접속하기위한 문자열
+$my_dsn ="mysql:host=".$my_host.";port=".$my_port.";dbname=".$my_db_name.";charset=".$my_charset; //DSN DB에 접속하기위한 문자열
 
 // PDD 옵션 설정
 $my_opt = [
@@ -26,19 +27,39 @@ $my_opt = [
 $conn = new PDO($my_dsn, $my_user,$my_password,$my_opt);
 
 // select
-$sql ="SELECT *
-        FROM employees
-        ORDER BY emp_id 
-        LIMIT 5";
+$sql ="SELECT "
+        ." * "
+        ." FROM "
+        ." employees "
+        ." LIMIT 3"
+        ;
 
 $stmt = $conn->query($sql); //쿼리 준비 + 쿼리 실행
 $result = $stmt ->fetchAll(); // 질의 결과 패치
 print_r($result);
 
-//사번과 이름만 출력
-foreach($result as $item) {
-    echo $item["emp_id"]." ".$item["name"]."\n";
-}
+// select 예제
+$sql =
+    " SELECT "
+    ." * "
+    ." FROM "
+    ." employees "
+    ." WHERE"
+    ."      emp_id = :emp_id1 "
+    ." OR  emp_id = :emp_id2 "
+    ;
+
+$prepare = [
+    "emp_id1" => 10001
+    ,"emp_id2" => 10002
+];
+
+$stmt = $conn->prepare($sql); //쿼리 준비
+$stmt ->execute($prepare); //쿼리 실행
+$result = $stmt ->fetchAll(); //결과 fetch
+
+print_r($result);
+
 
 
 
