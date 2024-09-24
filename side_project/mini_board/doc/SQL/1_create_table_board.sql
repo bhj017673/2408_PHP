@@ -1,0 +1,13 @@
+CREATE DATABASE if NOT EXISTS mini_board;
+
+USE mini_board;
+
+CREATE TABLE board (
+	ID				BIGINT(20)UNSIGNED  	PRIMARY KEY AUTO_INCREMENT 
+	,TITLE		VARCHAR(50)				NOT NULL
+	,content		VARCHAR(1000)			NOT null
+	,created_at TIMESTAMP				NOT NULL 	default CURRENT_TIMESTAMP()  
+	,updated_at TIMESTAMP				NOT NULL  	default CURRENT_TIMESTAMP()
+	,deleted_at TIMESTAMP				NULL
+	)
+; 

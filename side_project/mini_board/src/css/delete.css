@@ -1,0 +1,36 @@
+.main-header {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.2rem;
+}
+
+
+.box {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 900;
+    height: 50px;
+}
+
+.box-title {
+    background-color: #7088ff;
+    border-radius: 40px 0 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-content {
+    background-color: #fff;
+    border-radius: 0 40px 40px 0;
+    display: flex;
+    color: #000;
+    justify-content: center;
+    align-items: center;
+}
+.main-content {
+    margin-top: 50px;
+}
