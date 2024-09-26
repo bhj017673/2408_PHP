@@ -5,8 +5,49 @@ require_once(MY_PATH_DB_LIB);
 $conn = null ;
 
 try {
+    if(strtoupper($_SERVER["REQUEST_METHOD"]) === "GET" ) {
+        //get 처리
+        $id = isset($_GET["id"]) ? (int)$_GET["id"] : 0;
+        $page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
+
+        if($id <1) {
+            throw new Exception("파라미터 이상");
+        }
+        $conn = my_db_conn();
+
+        $arr_prepare = [
+            "id" =>$id
+        ];
+        // 삭제처리
+        $result = my_board_select_id($conn, $arr_prepare);
+
+    } else {
+        $id=isset($_POST["id"]) ? (int)$_POST["id"] : 0 ;
+    
+        if($id <1) {
+                throw new Exception("파라미터 오류");
+        }
+        $conn = my_db_conn();
+
+        $conn-> beginTransaction();
+
+        $arr_prepare = [
+            "id" =>$id
+        ];
+
+        my_board_delete_id($conn, $arr_prepare);
+        
+        $conn->commit();
+
+        header("Location: /index.php");
+        exit;
+    }
 
 }catch(Throwable $th) {
+
+    if(!is_null($conn) && $conn->inTransaction()) {
+        $conn->rollBack();
+    }
     require_once(MY_PATH_ERROR);
     exit;
 }
@@ -35,24 +76,27 @@ try {
     <div class="main-content">
         <div class="box">
             <div class="box-title">게시글 번호</div>
-            <div class="box-content">30</div>
+            <div class="box-content"><?php echo $result["id"]?></div>
         </div>
         <div class="box">
             <div class="box-title">작성일</div>
-            <div class="box-content">2024-01-01 10:00:00</div>
+            <div class="box-content"><?php echo $result["created_at"]?></div>
         </div>
         <div class="box">
             <div class="box-title">제목</div>
-            <div class="box-content">제목 3022</div>
+            <div class="box-content"><?php echo $result["title"]?></div>
         </div>
         <div class="box">
             <div class="box-title">내용</div>
-            <div class="box-content">내용3011</div>
+            <div class="box-content"><?php echo $result["content"]?></div>
         </div>
 
         <div class="main-footer">
-            <a href="/index.php"><button type="button" class="btn-small">동의</button></a>
-            <a href="/detail.php"><button type="button" class ="btn-small">취소</button></a>
+            <form action="/delete.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $result ["id"]?>">
+                <button type="submit" class="btn-small">삭제</button>
+                <a href="/detail.php?id=<?php echo $result ["id"] ?> &page=<?php echo $page ?>"><button type="button" class ="btn-small">취소</button></a>
+            </form>
         </div>
     </div>
 </main>

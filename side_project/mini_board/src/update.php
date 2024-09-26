@@ -38,8 +38,7 @@ try {
             //  title 획득
             $title= isset($_POST["title"]) ? $_POST["title"] : "";
             // content 획득
-            $content = isset($POST["content"]) ? $_POST["content"] : "";
-    
+            $content = isset($_POST["content"]) ? $_POST["content"] : "";
             
             if ($id < 1 || $title === "") {
                 throw new Exception("파라미터 오류");
@@ -48,9 +47,29 @@ try {
             $conn = my_db_conn();
 
             $conn->beginTransaction();
+            
+            $arr_prepare = [
+                "id" => $id
+                ,"title" => $title
+                ,"content" => $content
+            ];
+
+            my_board_update($conn, $arr_prepare);
+
+            // commit
+            $conn->commit();
+
+            // detail page로 이동
+            header("Location: /detail.php?id=".$id."&page=".$page);
+            exit;
         }
 
+
 }catch(Throwable $th) {
+    if(!is_null($conn) && $conn->inTransaction()) {
+        $conn->rollBack();
+    }
+
     require_once(MY_PATH_ERROR);
     exit;
 }
@@ -89,7 +108,7 @@ try {
         <div class="box content-box">
             <div class="box-title">내용</div>
             <div class="box-content">
-                <textarea name="content" id="content"><?php echo $result["cont  ent"] ?></textarea>
+                <textarea name="content" id="content"><?php echo $result["content"] ?></textarea>
             </div>
         </div>
         <div class="main-footer">
