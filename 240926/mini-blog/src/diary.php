@@ -1,3 +1,35 @@
+<?php 
+require_once($_SERVER["DOCUMENT_ROOT"]."/default.php");
+require_once(MY_PATH_DB_LIB);
+
+$conn = null;
+
+try {
+    $conn =  my_db_conn();
+
+    $max_board_cnt = my_board_total($conn);
+
+
+    $page = isset($_GET["page"]) ? (int)$_GET["page"] :1 ;
+    $offset = ($page -1) * MY_LIST_COUNT;
+    $start_page_button = (int)(floor(($page-1)/ MY_PAGE_BUTTON_COUNT)*MY_PAGE_BUTTON_COUNT) +1 ;
+    $end_page_button = $start_page_button +(MY_PAGE_BUTTON_COUNT - 1);
+
+    $end_page_button = $end_page_button > $max_page ? $max_page : $end_page_button;
+    $prev_page_button = $page -1 <1 ? 1:$page -1 ;
+    $next_page_button = $page +1 > $max_page ? $max_page : $page+1;
+    
+    $arr_prepare= [
+        "list_cnt" => MY_LIST_COUNT
+    ]
+
+}
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
