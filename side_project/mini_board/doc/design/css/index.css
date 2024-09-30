@@ -11,13 +11,13 @@
     padding: 10px;
     margin-bottom: 10px;
 }
-
-.list-head {
-    background-color: #7ba9ff;
-    border-radius: 40px;
-    color: #ffffff;
-}
-
 .list-content {
     background-color: #fff;
+}
+
+.main-content {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
 }

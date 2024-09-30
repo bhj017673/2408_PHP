@@ -12,6 +12,30 @@ function my_db_conn() {
 
 }
 
+function my_board_select_pagination(PDO $conn, array $arr_param) {
+    $sql =
+    " SELECT "
+    ."      * "
+    ." FROM "
+    ."      board"
+    ." WHERE "
+    ."      deleted_at IS NULL "
+    ." ORDER BY "
+    ."      created_at DESC "
+    ."      , id DESC "
+    ." LIMIT :list_cnt OFFSET :offset "
+    ;
+
+    $stmt=$conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception(" Query Error");
+    }
+
+    return $stmt->fetchAll();
+}
+
 function my_board_total(PDO $conn) {
     $sql =
         " SELECT "
@@ -19,11 +43,41 @@ function my_board_total(PDO $conn) {
         ." FROM "
         ."      board "
         ." WHERE "
-        ."      deleted_at is null "
+        ."      deleted_at IS NULL "
     ;
 
     $stmt = $conn->query($sql);
-    $result =$stmt->fetchAll();
+    $result = $stmt->fetch();
 
     return $result["cnt"];
+}
+
+function my_board_insert(PDO $conn, $arr_param) {
+    $sql = 
+    " INSERT INTO board ( "
+    ."      title "
+    ."      ,content "
+    ."      ,NAME "
+    ." ) "
+    ." VALUES ( "
+    ."      :title "
+    ."      :content "
+    ."      :NAME "
+    ." ) "
+    ;
+    
+    $stmt = $conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new exception("Query Error");
+    }
+
+    $result_cnt = $stmt->rowCount();
+
+    if($result_flg !== 1) {
+        throw new Exception(" Insert Count Error");
+    }
+
+    return true;
 }
