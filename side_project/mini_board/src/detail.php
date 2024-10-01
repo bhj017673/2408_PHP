@@ -11,7 +11,7 @@ try {
     //page 획득
     $page = isset($_GET["page"]) ? (int)$_GET["page"] : 1;
 
-    if($id < 1) {
+    if($id <1) {
         throw new Exception("파라미터 오류");
     }
 

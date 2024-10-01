@@ -10,18 +10,18 @@ if(strtoupper($_SERVER["REQUEST_METHOD"]) === "POST") {
         $conn = my_db_conn();
 
         $arr_prepare = [
-            "title" =>$_POST["title"]
+            "title" => $_POST["title"]
             ,"content" => $_POST["content"]
-            ,"writer" => $_POST["writer"]
+            ,"name" => $_POST["name"]
         ];
 
         $conn->beginTransaction();
-        
         my_board_insert($conn, $arr_prepare);
 
         $conn->commit();
-        header("Location: /" );
+        header("Location: /diary.php" );
         exit;
+
     }   catch(Throwable $th) {
         if(!is_null($conn)) {
             $conn->rollBack();
@@ -37,25 +37,24 @@ if(strtoupper($_SERVER["REQUEST_METHOD"]) === "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="./css/insert.css">
+    <title>작성페이지</title>
 </head>
 <body>
     <main>
         <div class="container">
             <h1 class=" main-title">Diary</h1>
             <div class="main-menu">
-                <div><a href="./mainpage.html">Home</a></div>
-                <div><a href="./list.html">List</a></div>
-                <div><a href="./diary.html">Diary</a></div>
-                <div><a href="./calendar.html">Calendar</a></div>
-                <div><a href="./portfolio.html">Portfolio</a></div>
+                <div><a href="/index.php">Home</a></div>
+                <div><a href="/list.php">List</a></div>
+                <div><a href="/diary.php">Diary</a></div>
+                <div><a href="/calendar.php">Calendar</a></div>
+                <div><a href="/portfolio.php">Portfolio</a></div>
             </div>
-            <div class="main-content">
                 <form action="./insert.php" method="post">
                     <div class="writer">
                         <div class="box-writer">작성자
-                            <input type="text" name="writer" id="writer" maxlength="20">
+                            <input type="text" name="name" id="name" maxlength="20">
                         </div>
                     </div>
                     <div class="title">
@@ -70,7 +69,7 @@ if(strtoupper($_SERVER["REQUEST_METHOD"]) === "POST") {
                     </div>
                     <div class="main-footer">
                             <button type="submit" class="btn-small">POST</button>
-                        <a href="./"><button type="button" class ="btn-small cancel">CANCEL</button></a>
+                        <a href="./diary.php"><button type="button" class ="btn-small cancel">CANCEL</button></a>
                     </div>
                 </form>
             </div>

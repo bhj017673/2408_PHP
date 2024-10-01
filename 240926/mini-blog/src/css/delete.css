@@ -20,10 +20,11 @@ main {
 }
 
 .main-title{
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-weight: 900;
     text-align: center;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.74);
 
 }
 
@@ -34,7 +35,8 @@ main {
     font-size: 1.5rem;
     font-weight: 600;
     padding: 10px 0;
-    margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.74);
+    margin-bottom: 30px;
 }
 
 .main >.a {
@@ -45,7 +47,7 @@ main {
     text-align: center;
     margin-top: 40px;
     font-size: 1.7rem;
-    font-weight: 500;
+    font-weight: 700;
     padding: 30px 0;
     line-height: 40px;
 }
@@ -104,11 +106,12 @@ div > a{
     background-color: rgba(255, 255, 255, 0.322);
 }
 
-.btn-small:hover {
-    background-color: #a3a3a3;
+
+button:hover {
+    text-decoration: underline;
 }
 
 .main-menu > div :hover {
-    background-color: rgb(214, 196, 199);
+    text-decoration: underline;
 }
 

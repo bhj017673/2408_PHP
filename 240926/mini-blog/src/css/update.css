@@ -19,11 +19,13 @@ main {
     width : 1000px;  
 }
 
+
 .main-title{
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-weight: 900;
     text-align: center;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.74);
 
 }
 
@@ -34,8 +36,10 @@ main {
     font-size: 1.5rem;
     font-weight: 600;
     padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.74);
     margin-bottom: 30px;
 }
+
 
 div > a{
     text-decoration: none;
@@ -63,6 +67,17 @@ div > a{
     height: 40px;
 }
 
+#name {
+    background-color:rgba(255, 255, 255, 0.74) ;
+    height: 40px;
+    padding-top: 7px;
+    width: 200px;
+    border: none;
+    outline: none;
+    font-size: 1.3rem;
+    height: 40px;
+}
+
 #title {
     height: 40px;
 }
@@ -81,10 +96,6 @@ div > a{
 
 .box-content , .box-title, .box-writer{
     text-align: center;
-}
-
-.main-menu > div :hover {
-    background-color: rgb(214, 196, 199);
 }
 
 .btn-small {
@@ -107,6 +118,10 @@ div > a{
     margin-right: 70px;
 }
 
-.btn-small:hover {
-    background-color: #a3a3a3;
+.main-menu > div :hover {
+    text-decoration: underline;
+}
+
+button:hover {
+    text-decoration: underline;
 }

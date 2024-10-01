@@ -49,11 +49,11 @@ try {
         <div class="container">
             <h1 class=" main-title">Diary</h1>
             <div class="main-menu">
-                <div><a href="./mainpage.php">Home</a></div>
-                <div><a href="./list.php">List</a></div>
-                <div><a href="./diary.php">Diary</a></div>
-                <div><a href="./calendar.php">Calendar</a></div>
-                <div><a href="portfolio.php">Portfolio</a></div>
+                <div><a href="/index.php">Home</a></div>
+                <div><a href="/list.php">List</a></div>
+                <div><a href="/diary.php">Diary</a></div>
+                <div><a href="/calendar.php">Calendar</a></div>
+                <div><a href="/portfolio.php">Portfolio</a></div>
             </div>
             <div class="main-top">
                 <a href="./insert.php">
@@ -70,7 +70,7 @@ try {
                 <?php foreach($result as $item) { ?>
                 <div class="list-content">
                 <div><?php echo $item["id"] ?></div>
-                <div><a href="/detail.php?id=<?php echo $item["id"] ?>&page=<?php echo $page ?>"><?php echo $item["title"] ?></a></div>
+                <div><a href="/detailpage.php?id=<?php echo $item["id"] ?>&page=<?php echo $page ?>"><?php echo $item["title"] ?></a></div>
                 <div><?php echo $item["created_at"] ?></div>
                 <div><?php echo $item["NAME"] ?></div>
                 </div>

@@ -20,10 +20,11 @@ main {
 }
 
 .main-title{
-    font-size: 5rem;
+    font-size: 4.5rem;
     font-weight: 900;
     text-align: center;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
+    background-color: rgba(255, 255, 255, 0.74);
 
 }
 
@@ -34,6 +35,7 @@ main {
     font-size: 1.5rem;
     font-weight: 600;
     padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.74);
     margin-bottom: 30px;
 }
 
@@ -55,7 +57,7 @@ div > a{
     padding-left: 30px;
 }
 
-#writer {
+#name {
     width: 200px;
     border: none;
     outline: none;
@@ -79,13 +81,6 @@ div > a{
 
 }
 
-.box-content , .box-title, .box-writer{
-    text-align: center;
-}
-
-.main-menu > div :hover {
-    background-color: rgb(214, 196, 199);
-}
 
 .btn-small {
     margin-right : 30px;
@@ -107,6 +102,10 @@ div > a{
     margin-right: 70px;
 }
 
-.btn-small:hover {
-    background-color: #a3a3a3;
+button:hover {
+    text-decoration: underline;
+}
+
+.main-menu > div :hover {
+    text-decoration: underline;
 }

@@ -57,12 +57,12 @@ function my_board_insert(PDO $conn, $arr_param) {
     " INSERT INTO board ( "
     ."      title "
     ."      ,content "
-    ."      ,NAME "
+    ."      ,name "
     ." ) "
     ." VALUES ( "
     ."      :title "
-    ."      :content "
-    ."      :NAME "
+    ."      ,:content "
+    ."      ,:name "
     ." ) "
     ;
     
@@ -73,11 +73,79 @@ function my_board_insert(PDO $conn, $arr_param) {
         throw new exception("Query Error");
     }
 
-    $result_cnt = $stmt->rowCount();
+    $result_flg = $stmt->rowCount();
 
     if($result_flg !== 1) {
         throw new Exception(" Insert Count Error");
     }
 
+    return true;
+}
+
+function my_board_id_selection(PDO $conn, array $arr_param) {
+    $sql = 
+    " SELECT "
+    ."      * "
+    ." FROM "
+    ."      board "
+    ." WHERE "
+    ."      id = :id "
+    ;
+
+    $stmt = $conn->prepare($sql);
+    $result_flg=$stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("Query Error");
+    }
+
+    return $stmt->fetch();
+
+}
+
+function my_board_update(PDO $conn, array $arr_param) {
+    $sql =
+        " UPDATE board "
+        ." SET "
+        ."      title = :title "
+        ."      ,content = :content "
+        ."      ,updated_at = NOW() "
+        ." WHERE "
+        ."      id=:id "
+        ;
+
+        $stmt = $conn->prepare($sql);
+        $result_flg = $stmt->execute($arr_param);
+
+        if(!$result_flg) {
+            throw new Exception("Query Error");
+        }
+
+        if($stmt->rowCount() !== 1 ) {
+            throw new Exception (" Update Count Error");
+        }
+
+        return true;
+}
+
+function my_board_delete(PDO $conn, $arr_param) {
+    $sql = 
+        " UPDATE board "
+        ." SET "
+        ."      updated_at = NOW() "
+        ."      ,deleted_at = NOW() "
+        ." WHERE "
+        ."      id=:id "
+    ;
+
+    $stmt=$conn->prepare($sql);
+    $result_flg = $stmt->execute($arr_param);
+
+    if(!$result_flg) {
+        throw new Exception("Query Error");
+    }
+    if($stmt->rowCount() !==1) {
+        throw new Exception("Delete Count Error");
+    }
     return true;
 }
