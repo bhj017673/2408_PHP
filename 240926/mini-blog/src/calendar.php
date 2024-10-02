@@ -7,6 +7,16 @@
 		<title>Calendar</title>
 	</head>
 	<body>
+	<main>
+	<div class="container_1">
+            <h1 class=" main-title">Diary</h1>
+            <div class="main-menu">
+                <div><a href="/index.php">Home</a></div>
+                <div><a href="/list.php">List</a></div>
+                <div><a href="/diary.php">Diary</a></div>
+                <div><a href="/calendar.php">Calendar</a></div>
+                <div><a href="/portfolio.php">Portfolio</a></div>
+            </div>
 		<div class="container">
 			<div class="item" id="today">
 				<div id="week"></div>
@@ -83,5 +93,6 @@
 				</tr>
 			</table>
 		</div>
-    </body>
+	</body>
+</main>
 </html>

@@ -53,39 +53,68 @@ div > a{
 .main-content {
     display: grid;
     margin-top: 30px;
-    grid-template-columns: 2fr 5fr 2fr 2fr;
-    grid-template-rows: 150px 150px 150px 150px;
+    grid-template-columns: 290px 290px 2fr 2fr;
+    grid-template-rows: 310px 150px 150px;
     font-size: 1.5rem;
     gap: 10px;
 
 }
 
-.main-content > div {
-    background-color: rgba(255, 255, 255, 0.74);
+.jja {
+    grid-area: 1/1/2/2;
+    background-image: url(/jja.jpg);
+    background-size: cover;
 }
-.list {
-    grid-area: 1/1/3/2;
+.bong {
+    grid-area: 1/2/2/3;
+    background-image: url(/bong.jpg);
+    background-size: cover;
 }
 
-.list2 {
-    grid-area: 3/1/5/2;
+.ray{
+    grid-area: 2/1/4/2;
+    background-image: url(/ray.jpg);
+    background-size: cover;
 }
 .cal {
     grid-area: 1/3/3/5;
+    background-color: rgba(255, 255, 255, 0.74);
 }
 .photo {
     grid-area: 3/3/5/4;
-    display: grid;
+    background-color: rgba(255, 255, 255, 0.74);
 }
+
+.hodu {
+    grid-area: 2/2/4/3;
+    background-image: url(/hodu.jpg);
+    background-size: cover;
+}
+
 .git {
-    grid-area: 3/3/4/4;
-    background-image: url(./img/git.png);
+    grid-area: 2/3/3/4;
+    text-align: center;
+    margin: auto;
+}
+
+.blog{
+    grid-area: 3/4/4/5;
+    text-align: center;
+    margin: auto;
 }
 
 .insta {
-    grid-area: 4/3/5/4;
+    grid-area: 3/3/4/4;
+    text-align: center;
+    margin: auto;
 }
 
 .notion {
-    grid-area: 3/4/4/5;
+    grid-area: 2/4/3/5;
+    text-align: center;
+    margin: auto;
+}
+
+.diary4 {
+    grid-area: 1/3/2/5;
 }

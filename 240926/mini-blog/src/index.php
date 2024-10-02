@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/mainpage.css">
+
 </head>
 <body>
     <main>
@@ -18,20 +19,21 @@
                 <div><a href="/portfolio.php">Portfolio</a></div>
             </div>
             <div class="main-content">
-                <div class="list">
-                    <p>list</p>
+                <div class="jja"></div>
+                <div class="bong"></div>
+                <div class="ray"></div>
+                <div class="hodu"></div>
+                <div class="git">
+                    <a href="https://github.com/bhj017673/2408_PHP"target="_blank"><img src="/git.png" alt="" height="120px" width="120px"></a>
                 </div>
-                <div class="list2"></div>
-                <div class="diary"></div>
-                <div class="diary1"></div>
-                <div class="diary2"></div>
-                <div class="diary3"></div>
-                <div class="cal">Calendar</div>
-                <div class="git"></div>
-                <div class="insta"></div>
-                <div class="notion"></div>
-                <div class="blog"></div>
-                <div class="diary4"></div>
+                <div class="insta"><a href="https://www.instagram.com/_xxexyux?igsh=ejN3cmRjdG8xeDF6&utm_source=qr"target="_blank"><img src="/insta.png" alt="" height="140px" width="140px"></a></div>
+                <div class="notion">
+                    <a href="https://www.notion.so/535ac189906c412c90777ba0baef20b4?v=94a5a4978b874840857c6208ec82675f/"target="_blank"><img src="/notion.png" alt="" height="120px" width="120px"></a>
+                </div>
+                <div class="blog"><a href="/loading.php"><img src="/quest.png" alt="" height="120px" width="120px"></a></div>
+                <div class="diary4">
+                    
+                </div>
             </div>
     </main>
 </body>
