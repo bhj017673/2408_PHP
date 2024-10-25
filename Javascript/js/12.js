@@ -54,11 +54,35 @@ const arrowFnc4 = (a,b) => {
         return 'A가 더큼';
     }
 }
+
+// -------------
+//  즉시실행 함수
+//  - 함수가 정의됨가 동시에 실행됨, 호출할 방법이 없음 딱 한번만 실행
+// -------------
+const execFnc = (function(a,b) {
+    return a + b;
+})(5,6)
+
+// execFnc(1,2);
     
+// ---------
+// 콜백함수
+// 진짜 많이써서 알고있어야댐
+// ---------
 
+function myCallBack() {
+    console.log('myCallBack');
+}
 
+function myChkPrint(callBack,flg) {
+    if(flg){
+        callBack();
+    }
+}
 
+myChkPrint(myCallBack,true);
 
+myChkPrint(() => 'ttt',true);
 
 
 
