@@ -1,0 +1,18 @@
+.container {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 300px;
+    left: 300px;
+    background-color: aliceblue;
+}
+
+.box {
+    width: 70px;
+    height: 70px;
+    margin: 15px;
+}
+
+.busted {
+    background-color: #c4f5f9;
+}
