@@ -4,41 +4,54 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
-{
-    use HasApiTokens, HasFactory, Notifiable;
+class User extends Authenticatable{
+    
+    // SoftDeletes 트레이트 : 해당 모델에 소프트 딜리트를 적용하고 싶을대 추가
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+    // 테이블명 지정하는 프로퍼티 (디폴트는 모델명의 복수형)
+    protected $table = 'users';
+
+
+    // PK를 지정하는 프로퍼티
+    protected $primaryKey = 'u_id';
+
+    // const CREATED_AT = 'created_at';
+    // const UPDATED_AT = 'updated_at';
+
+    /***
+     * upsert 시 변경을 허용할 컬럼들을 설정하는 프로퍼티(화이트리스트)
+    */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'u_email'
+        ,'u_password'
+        ,'u_name'
+        ,'created_at'
+        ,'deleted_at'
+        ,'updated_at'
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    /***
+     * upsert 시 변경을 불허할 컬럼들을 설정하는 프로퍼티(블랙리스트)
+    */
+    
+    // protected $quarded = [
+    //     'id'
+    // ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+
+
+
+
+
+
+
+
+
+
 }
