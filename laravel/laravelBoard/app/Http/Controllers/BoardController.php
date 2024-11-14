@@ -15,7 +15,7 @@ class BoardController extends Controller
      */
     public function index()
     {   
-        //리스트 데디터 획득
+        //리스트 데이터 획득
         $result = Board::select('b_id', 'b_title', 'b_content', 'b_img')
                     ->orderBy('created_at', 'DESC')
                     ->orderBy('b_id', 'DESC')
@@ -31,7 +31,7 @@ class BoardController extends Controller
      */
     public function create()
     {
-        //
+        return view('insert0');
     }
 
     /**
@@ -40,9 +40,12 @@ class BoardController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request){
+        $board = Board::create([
+            'b_title'=>$request->input('b_title')
+            ,'b_content'=>$request->input('b_content')
+        ]);
+        return redirect('/boards');
     }
 
     /**

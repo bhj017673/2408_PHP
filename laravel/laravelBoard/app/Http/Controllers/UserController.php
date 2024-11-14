@@ -55,8 +55,8 @@ class UserController extends Controller
         // 유저인증처리
          Auth::login($userInfo);
 
-         var_dump(Auth::id());          //로그인한 유저의 pk획득
-         var_dump(Auth::user());        //로그인한 유저의 정보획득
+        //  var_dump(Auth::id());          //로그인한 유저의 pk획득
+        //  var_dump(Auth::user());        //로그인한 유저의 정보획득
         //  var_dump(Auth::check());    //로그인 여부체크
          return redirect()->route('boards.index');
     }
@@ -71,5 +71,10 @@ class UserController extends Controller
         return redirect()->route('goLogin'); 
     
     }
+
+    // // 회원가입
+    // public function registration() {
+    //     return view ('registration');
+    // }
 }
 
