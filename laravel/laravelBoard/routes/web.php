@@ -20,7 +20,7 @@ Route::get('/', function () {
     return redirect()->route('goLogin');
 });
 // 로그인관련
-Route::get('/login',[UserController::class, 'gologin'])->name('goLogin');
+Route::middleware('guest')->get('/login',[UserController::class, 'gologin'])->name('goLogin');
 Route::post('/login', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
