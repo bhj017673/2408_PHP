@@ -1,5 +1,26 @@
 <template>
-    
+
+    <!-- component event -->
+     <p>부모쪽 cnt : {{ cnt }}</p>
+
+     <EventComponent
+        :cnt = "cnt"
+        @eventAddcnt = "addCnt"
+        @eventAddCntParam ="addCntParam"
+        @eventResetCnt = "resetCnt"
+
+    />
+
+    <hr>
+    <!-- Props -->
+    <ChildComponent 
+        :data = "data"
+        :count = "cnt"
+    >
+
+    <h3>부모쪽에서 작성한 것들</h3>
+    <p>아아아아아아ㅏ아 {{ cnt }}</p>
+    </ChildComponent>
     <!-- 자식컴포넌트 호출 -->
     <BoardComponent />
 
@@ -54,6 +75,8 @@
 
 <script setup>
 import BoardComponent from './components/BoardComponent.vue';
+import ChildComponent from './components/ChildComponent.vue';
+import EventComponent from './components/EventComponent.vue';
 import { reactive, ref } from 'vue';
 
 const data = reactive([
@@ -78,6 +101,13 @@ function disCnt(){
     cnt.value--;
 }
 
+function addCntParam(num) {
+    cnt.value += num;
+}
+
+function resetCnt() {
+    cnt.value = 0;
+}
 
 const transgender = ref('');
 
