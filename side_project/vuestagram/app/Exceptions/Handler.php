@@ -2,7 +2,11 @@
 
 namespace App\Exceptions;
 
+use App\Http\Middleware\Authenticate;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Support\Facades\Log;
+use PDOException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -38,4 +42,60 @@ class Handler extends ExceptionHandler
             //
         });
     }
+
+    /**
+     * 예외및 에러가 발생했을 떄 호출되며, 
+     * 주로 로깅이나 외부서비스에 보고를 하기위한 작업을 수행한다
+     */
+    public function report(Throwable $th){
+        Log::info('Report'.$th->getMessage());
+    }
+
+    /**
+     * 에러핸들링 커스텀
+     * 예외및 에러가 브라우저로 렌더링 되가전에 호출
+     * 커스텀 HTTP응답을 전달
+     */
+    public function render($request, Throwable $th){
+        // 예외코드 초기화
+        $code = 'E99';
+        Log::debug($th->getMessage());
+
+        // 인스턴스 확인후 예외 정보 변경
+
+        if($th instanceof AuthenticationException) {
+            $code = 'E01';
+        } else if ($th instanceof PDOException) {
+            $code = 'E80';
+        }
+
+        $errInfo = $this->context()[$code];
+
+        // Response Data 생성
+        $responseData = [
+            'success' => false
+            ,'code' => $code
+            ,'msg' => $errInfo['msg']
+        ];
+
+        return response()->json($responseData, $errInfo['status']);
+
+    }
+
+    /*
+     * 에러메세지 리스트
+     * 
+     * @return Array 에러메세지 배열
+     */
+    public function context() {
+        return [
+            'E01' => ['status' => 401 ,'msg' => '인증실패'],
+            'E80' => ['status' => 500 ,'msg' => 'DB 에러가 발생했습니다'],
+            'E99' => ['status' => 500 ,'msg' => '시스템 에러가 발생했습니다'],
+        
+        ];
+    }
+
+
 }
+

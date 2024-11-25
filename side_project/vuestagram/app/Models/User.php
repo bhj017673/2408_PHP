@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
-    protected $primarykey  = 'user_id';
+    protected $primaryKey  = 'user_id';
 
     /**
      * The attributes that are mass assignable.
@@ -48,4 +48,9 @@ class User extends Authenticatable
     protected function serializeDate(\DateTimeInterface $date){
         return $date->format('Y-m-d H:i:s'); 
     }
+
+    public function boards() {
+        return $this->hasMany(Board::class,'user_id');
+    }
 }
+

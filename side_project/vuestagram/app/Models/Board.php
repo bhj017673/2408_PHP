@@ -10,7 +10,7 @@ class Board extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $primarykey  = 'board_id';
+    protected $primaryKey  = 'board_id';
 
     protected $fillable = [
         'user_id'
@@ -32,6 +32,10 @@ class Board extends Model
 
      protected function serializeDate(\DateTimeInterface $date){
         return $date->format('Y-m-d H:i:s'); 
+    }
+
+    public function users() {
+        return $this->belongsTo(User::class);
     }
 }
 
