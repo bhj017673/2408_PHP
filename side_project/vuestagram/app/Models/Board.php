@@ -19,9 +19,6 @@ class Board extends Model
         ,'like'
     ];
 
-
-
-
     /**
      * TimeZone format when serializing JSON
      * 
@@ -34,8 +31,8 @@ class Board extends Model
         return $date->format('Y-m-d H:i:s'); 
     }
 
-    public function users() {
-        return $this->belongsTo(User::class);
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id')->select('user_id','name');
     }
 }
 

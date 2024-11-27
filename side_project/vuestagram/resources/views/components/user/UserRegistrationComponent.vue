@@ -19,7 +19,6 @@
         <hr>
         <button class="btn btn-submit btn-bg-black">회원가입</button>
         <button @click="$router.replace('/login')" class="btn btn-submit">취소</button>
-    
     </div>
 </template>
 
