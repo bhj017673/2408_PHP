@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
 use App\Models\User;
+use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -65,7 +66,42 @@ class AuthController extends Controller
             'success' => true
             ,'msg' => '로그아웃 성공'
         ];
-
+        
         return response()->json($responseData, 200);
+    }
+
+        /**
+         * 토큰 재발급 처리
+         * 
+         * @param Illuminate\Http\Request $request
+         * 
+         * @return response JSON
+         */
+        public function reissue(Request $request) {
+            // 페이로드에서 유저 PK획득
+            $userId = MyToken::getValueInPayLoad($request->bearerToken(), 'idt');
+
+            //유저 정보 획득
+            $userInfo = User::find($userId);
+
+            // 리프레쉬 토큰 비교
+            if($request->bearerToken() !== $userInfo->refresh_token) {
+                throw new Exception('E22');
+            }
+
+            // 토큰발급
+            list($accessToken, $refreshToken) = MyToken::createTokens($userInfo);
+            
+            //리프레시 토큰 저장
+            MyToken::updateRefreshToken($userInfo, $refreshToken);
+            
+            $responseData = [
+                'success' => true
+                ,'msg' => '토큰 재발급 성공'
+                ,'accessToken' => $accessToken
+                ,'refreshToken' => $refreshToken
+            ];
+
+            return response()->json($responseData, 200);
     }
 }

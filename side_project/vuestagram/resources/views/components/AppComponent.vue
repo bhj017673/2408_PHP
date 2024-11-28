@@ -22,6 +22,7 @@
 
     <!-- Main -->
     <main>
+
         <UserInfoComponent v-if="$store.state.user.authFlg" />
         <div class="container">
             <router-view></router-view>
