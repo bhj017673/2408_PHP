@@ -22,7 +22,7 @@ class BoardFactory extends Factory
             'user_id' => $user->user_id,
             'content' => $this->faker->realText(rand(10, 100)),
             'img' => '/img/'.rand(1,7).'.jpg',
-            'like' => rand(1,100),
+            'like' => rand(1,300),
         ];
     }
 }
